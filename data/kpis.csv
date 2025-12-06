@@ -1,0 +1,15 @@
+KPI_Category,Metric,Current_2024,Target_2027,Target_2030,Unit
+Financial,Revenue,920,1200,1500,Million_USD
+Financial,Net_Profit_Margin,10.2,11.3,15.9,Percent
+Financial,ROI,12,18,25,Percent
+Operational,Ships_Served,13000,15500,17500,Number
+Operational,Response_Time,12,6,3,Hours
+Operational,Error_Rate,3.5,1.8,0.8,Percent
+Operational,Inventory_Turnover,8,10,12,Times_per_Year
+Customer,Customer_Satisfaction,82,90,95,Percent
+Customer,Market_Share,60,75,85,Percent
+Customer,Repeat_Business,70,80,90,Percent
+Development,Digitalization,35,90,100,Percent
+Development,Trained_Employees,1200,3500,5000,Number
+Development,International_Certifications,3,8,10,Number
+Development,Strategic_Partnerships,8,18,30,Number
