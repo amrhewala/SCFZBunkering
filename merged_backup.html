@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدراسة الاستراتيجية الشاملة لتطوير قطاع تموين السفن في المناطق الحرة لقناة السويس 2025-2030</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            line-height: 1.8;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .cover-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem;
+        }
+
+        .cover-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.3;
+        }
+
+        .cover-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+
+        .cover-info {
+            font-size: 1.3rem;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            margin: 0;
+            border-right: 8px solid #f59e0b;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .subsection-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin: 2rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .content-section {
+            padding: 3rem 2rem;
+        }
+
+        .stats-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stats-number {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .data-table td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .data-table tr:hover {
+            background-color: #f3f4f6;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-right: 6px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-right: 6px solid #3b82f6;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-right: 6px solid #10b981;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border-right: 6px solid #ef4444;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+
+        .chart-container {
+            height: 500px;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .formula-box {
+            background: #f9fafb;
+            border: 2px solid #667eea;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .methodology-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-left: 1rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-right: 3rem;
+            padding-bottom: 2rem;
+            border-right: 3px solid #667eea;
+        }
+
+        .timeline-item:last-child {
+            border-right: none;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            right: -13px;
+            top: 0;
+            width: 25px;
+            height: 25px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        ul,
+        ol {
+            margin: 1rem 0;
+            padding-right: 2rem;
+        }
+
+        li {
+            margin: 0.8rem 0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .icon-badge {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .main-container {
+                box-shadow: none;
+            }
+        }
+    </style>
+    <base target="_blank">
+</head>
+
+<body>
+    <div class="main-container">
+
+        <!-- صفحة الغلاف -->
+        <div class="cover-page">
+            <div class="text-6xl mb-8">
+                <i class="fas fa-ship"></i>
+            </div>
+            <h1 class="cover-title">
+                الدراسة الاستراتيجية الشاملة<br>
+                لتطوير قطاع تموين السفن<br>
+                في المناطق الحرة لقناة السويس
+            </h1>
+            <div class="cover-subtitle">
+                دراسة متكاملة مع تحليل إحصائي متقدم واستراتيجيات تنفيذية
+            </div>
+            <div class="cover-info">
+                <p><strong>الفترة الزمنية:</strong> 2025-2030</p>
+                <p class="mt-2"><strong>تاريخ الإصدار:</strong> ديسمبر 2024</p>
+                <p class="mt-4 text-sm opacity-80">إعداد: فريق البحث والتطوير الاستراتيجي</p>
+            </div>
+        </div>
+
+        <!-- جدول المحتويات -->
+        <div class="content-section" style="background: #f9fafb;">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">
+                <i class="fas fa-list-ul ml-3"></i>
+                جدول المحتويات
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <a href="#chapter1" class="text-blue-600 hover:text-blue-800 font-bold">الباب الأول: المقدمة والملخص
+                        التنفيذي</a>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <a href="#chapter2" class="text-blue-600 hover:text-blue-800 font-bold">الباب الثاني: تحليل الوضع
+                        الحالي</a>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <a href="#chapter3" class="text-blue-600 hover:text-blue-800 font-bold">الباب الثالث: التحليل
+                        الاقتصادي المتعمق</a>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <a href="#chapter4" class="text-blue-600 hover:text-blue-800 font-bold">الباب الرابع: التحليل
+                        الإحصائي المتقدم</a>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <a href="#chapter5" class="text-blue-600 hover:text-blue-800 font-bold">الباب الخامس: أدوات التحليل
+                        المتقدمة</a>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <a href="#chapter6" class="text-blue-600 hover:text-blue-800 font-bold">الباب السادس: التجارب
+                        الدولية</a>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <a href="#chapter7" class="text-blue-600 hover:text-blue-800 font-bold">الباب السابع: الاستراتيجية
+                        والتوصيات</a>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <a href="#chapter8" class="text-blue-600 hover:text-blue-800 font-bold">الباب الثامن: تحليل
+                        المخاطر</a>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow border-2 border-green-500">
+                    <a href="#chapter9" class="text-green-600 hover:text-green-800 font-bold">الباب التاسع: مشروع المنصة
+                        الرقمية اللوجستية (ShipPay)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- الباب الأول: المقدمة والملخص التنفيذي -->
+        <div id="chapter1">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-book-open ml-3"></i>
+                    الباب الأول: المقدمة والملخص التنفيذي
+                </h2>
+            </div>
+
+            <div class="content-section">
+                <h3 class="subsection-title">1.1 السياق العام والأهمية الاستراتيجية</h3>
+
+                <p class="text-xl leading-relaxed mb-6">
+                    تمثل قناة السويس شرياناً حيوياً للتجارة العالمية، حيث تستحوذ على <strong class="text-blue-600">12%
+                        من حجم التجارة البحرية العالمية</strong>. تربط القناة بين البحر الأبيض المتوسط والبحر الأحمر،
+                    وتوفر أقصر طريق بحري بين أوروبا وآسيا، مما يوفر حوالي 7,000 كيلومتر مقارنة بالطريق البديل حول رأس
+                    الرجاء الصالح.
+                </p>
+
+                <div class="highlight-box">
+                    <h4 class="font-bold text-2xl mb-3 flex items-center">
+                        <i class="fas fa-lightbulb text-yellow-600 ml-2"></i>
+                        النقاط الرئيسية
+                    </h4>
+                    <ul class="text-lg space-y-2">
+                        <li><strong>الموقع الاستراتيجي:</strong> قناة السويس تقع في نقطة التقاء ثلاث قارات (آسيا،
+                            أفريقيا، وأوروبا)</li>
+                        <li><strong>التوفير الزمني:</strong> توفير 10-14 يوم من وقت الرحلة البحرية</li>
+                        <li><strong>التوفير الاقتصادي:</strong> تخفيض تكاليف الشحن بنسبة 20-30% مقارنة بالطرق البديلة
+                        </li>
+                        <li><strong>الحجم السنوي:</strong> عبور أكثر من 20,000 سفينة سنوياً في الظروف العادية</li>
+                    </ul>
+                </div>
+
+                <h3 class="subsection-title">1.2 الملخص التنفيذي</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                    <div class="stats-card">
+                        <div class="stats-number">26,434</div>
+                        <div class="stats-label">سفينة عبرت في 2023</div>
+                        <div class="text-sm mt-3 opacity-80">القمة التاريخية</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-number">13,213</div>
+                        <div class="stats-label">سفينة عبرت في 2024</div>
+                        <div class="text-sm mt-3 opacity-80">انخفاض 50% بسبب الأزمة</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-number">+17.1%</div>
+                        <div class="stats-label">نمو في Q1 2025</div>
+                        <div class="text-sm mt-3 opacity-80">مؤشرات التعافي</div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4 class="font-bold text-2xl mb-3 flex items-center">
+                        <i class="fas fa-chart-line text-blue-600 ml-2"></i>
+                        أبرز النتائج
+                    </h4>
+                    <div class="text-lg space-y-3">
+                        <p><strong>حجم السوق الحالي:</strong> يتراوح بين 167-247 مليون دولار سنوياً (بيانات 2024)</p>
+                        <p><strong>حجم السوق المتوقع (2029):</strong> 280-430 مليون دولار سنوياً</p>
+                        <p><strong>معدل النمو السنوي المركب (CAGR):</strong> 4.33%</p>
+                        <p><strong>التوظيف المباشر:</strong> 11,800+ موظف حالياً، متوقع 25,000 بحلول 2030</p>
+                        <p><strong>الاستثمار المطلوب:</strong> 50-70 مليون دولار للمرحلة الأولى</p>
+                        <p><strong>العائد المتوقع:</strong> 280-430 مليون دولار سنوياً بحلول 2029</p>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">1.3 التحديات الحالية</h3>
+
+                <div class="warning-box">
+                    <h4 class="font-bold text-2xl mb-3 flex items-center">
+                        <i class="fas fa-exclamation-triangle text-red-600 ml-2"></i>
+                        التحديات الرئيسية
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+                        <div>
+                            <h5 class="font-bold mb-2">1. أزمة البحر الأحمر (2024)</h5>
+                            <ul class="space-y-1 text-base">
+                                <li>• انخفاض حركة السفن بنسبة 50%</li>
+                                <li>• تراجع الإيرادات من 314.3 إلى 178.7 مليار جنيه</li>
+                                <li>• انخفاض SCNT بنسبة 66.6%</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold mb-2">2. القيود البنية التحتية</h5>
+                            <ul class="space-y-1 text-base">
+                                <li>• عجز 67% في المستودعات المبردة</li>
+                                <li>• عجز 75% في محطات الوقود البحرية</li>
+                                <li>• عجز 79% في ورش الصيانة</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold mb-2">3. التحديات التشغيلية</h5>
+                            <ul class="space-y-1 text-base">
+                                <li>• وقت التسليم: 12-16 ساعة (مرتفع)</li>
+                                <li>• معدل الأخطاء: 2.1% (مرتفع)</li>
+                                <li>• التكلفة: أعلى بـ25% من المنافسين</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold mb-2">4. المنافسة الإقليمية</h5>
+                            <ul class="space-y-1 text-base">
+                                <li>• الفجيرة (الإمارات): 140,000 سفينة/سنة</li>
+                                <li>• دبي: 180,000 سفينة/سنة</li>
+                                <li>• جدة (السعودية): 12,800 سفينة/سنة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">1.4 الفرص الاستثمارية</h3>
+
+                <div class="success-box">
+                    <h4 class="font-bold text-2xl mb-3 flex items-center">
+                        <i class="fas fa-rocket text-green-600 ml-2"></i>
+                        الفرص الواعدة
+                    </h4>
+                    <div class="space-y-4 text-lg">
+                        <div class="flex items-start">
+                            <span class="step-number">1</span>
+                            <div>
+                                <h5 class="font-bold mb-2">المنصة الرقمية الموحدة (ShipPay)</h5>
+                                <p class="text-base">استثمار: 3.8 مليون دولار | عائد سنوي: 2.7 مليون دولار | فترة
+                                    الاسترداد: 1.4 سنة</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="step-number">2</span>
+                            <div>
+                                <h5 class="font-bold mb-2">توسعة الطاقة التخزينية</h5>
+                                <p class="text-base">استثمار: 11.8 مليون دولار | عائد سنوي: 3.6 مليون دولار | فترة
+                                    الاسترداد: 3.3 سنوات</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="step-number">3</span>
+                            <div>
+                                <h5 class="font-bold mb-2">مركز الإصلاح والصيانة</h5>
+                                <p class="text-base">استثمار: 8.2 مليون دولار | عائد سنوي: 4.73 مليون دولار | فترة
+                                    الاسترداد: 1.7 سنة</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="step-number">4</span>
+                            <div>
+                                <h5 class="font-bold mb-2">محطة الوقود البحري</h5>
+                                <p class="text-base">استثمار: 45 مليون دولار | عائد سنوي: 26.4 مليون دولار | فترة
+                                    الاسترداد: 1.7 سنة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">1.5 التوصية الرئيسية</h3>
+
+                <div class="methodology-card" style="border-right: 6px solid #10b981;">
+                    <h4 class="font-bold text-2xl mb-4 text-green-600">
+                        <i class="fas fa-check-circle ml-2"></i>
+                        المنصة المصرية المتكاملة للتموين البحري (EMPH)
+                    </h4>
+                    <div class="text-lg space-y-3">
+                        <p><strong>الموقع:</strong> المنطقة الحرة الجنوبية لقناة السويس</p>
+                        <p><strong>الاستثمار الأولي:</strong> 50-70 مليون دولار</p>
+                        <p><strong>العائد السنوي المتوقع (2029):</strong> 280-430 مليون دولار</p>
+                        <p><strong>الوظائف المباشرة:</strong> 6,180 وظيفة جديدة</p>
+                        <p><strong>فترة التنفيذ:</strong> 18-24 شهراً</p>
+                        <p><strong>معدل العائد على الاستثمار:</strong> 18-35% سنوياً</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- الباب الثاني: تحليل الوضع الحالي -->
+        <div id="chapter2">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-chart-bar ml-3"></i>
+                    الباب الثاني: تحليل الوضع الحالي
+                </h2>
+            </div>
+
+            <div class="content-section">
+                <h3 class="subsection-title">2.1 تحليل حركة السفن (2018-2025)</h3>
+
+                <div class="chart-container">
+                    <canvas id="vesselTrafficChart"></canvas>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>العام</th>
+                            <th>عدد السفن</th>
+                            <th>إجمالي الحمولة<br>(مليون طن)</th>
+                            <th>SCNT<br>(مليون طن)</th>
+                            <th>معدل النمو</th>
+                            <th>الدلالات الإحصائية</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>2018</strong></td>
+                            <td>18,174</td>
+                            <td>983.4</td>
+                            <td>1,168.0</td>
+                            <td>-</td>
+                            <td>خط الأساس</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2019</strong></td>
+                            <td>18,880</td>
+                            <td>1,029.4</td>
+                            <td>1,221.0</td>
+                            <td>+3.9%</td>
+                            <td>استقرار ما قبل الجائحة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2020</strong></td>
+                            <td>18,829</td>
+                            <td>1,013.9</td>
+                            <td>1,206.0</td>
+                            <td>-0.3%</td>
+                            <td>تأثير كوفيد-19 محدود</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2021</strong></td>
+                            <td>20,694</td>
+                            <td>1,270.0</td>
+                            <td>1,506.0</td>
+                            <td>+9.9%</td>
+                            <td>انتعاش قوي</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2022</strong></td>
+                            <td>23,803</td>
+                            <td>1,300.0</td>
+                            <td>1,542.0</td>
+                            <td>+15.0%</td>
+                            <td>ذروة ما قبل الأزمة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2023</strong></td>
+                            <td>26,434</td>
+                            <td>1,576.0</td>
+                            <td>1,576.0</td>
+                            <td>+11.1%</td>
+                            <td style="color: green; font-weight: bold;">القمة التاريخية</td>
+                        </tr>
+                        <tr style="background-color: #fee2e2;">
+                            <td><strong>2024</strong></td>
+                            <td>13,213</td>
+                            <td>897.3</td>
+                            <td>524.6</td>
+                            <td style="color: red; font-weight: bold;">-50.0%</td>
+                            <td style="color: red; font-weight: bold;">انهيار بسبب أزمة البحر الأحمر</td>
+                        </tr>
+                        <tr style="background-color: #d1fae5;">
+                            <td><strong>2025 (توقعات)</strong></td>
+                            <td>22,000-23,000</td>
+                            <td>1,400-1,500</td>
+                            <td>1,200-1,300</td>
+                            <td style="color: green; font-weight: bold;">+74%</td>
+                            <td style="color: green; font-weight: bold;">انتعاش تدريجي</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <h4 class="font-bold text-xl mb-2">
+                        <i class="fas fa-calculator ml-2"></i>
+                        العلاقة الإحصائية الرئيسية
+                    </h4>
+                    <p class="text-lg">
+                        <strong>معامل الارتباط</strong> بين عدد السفن وإجمالي الحمولة = <strong
+                            class="text-blue-600">0.92</strong> (ارتباط قوي جداً)
+                    </p>
+                    <p class="mt-2">
+                        <strong>التفسير:</strong> كل زيادة في عدد السفن بمقدار 1,000 سفينة تؤدي لزيادة الحمولة بـ50-60
+                        مليون طن
+                    </p>
+                </div>
+
+                <h3 class="subsection-title">2.2 توزيع أنواع السفن العابرة (2024)</h3>
+
+                <div class="chart-container">
+                    <canvas id="vesselTypesChart"></canvas>
+                </div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="icon-badge">
+                            <i class="fas fa-oil-can"></i>
+                        </div>
+                        <h4 class="font-bold text-xl mb-2">ناقلات النفط</h4>
+                        <div class="stats-number text-purple-600" style="font-size: 2rem;">38%</div>
+                        <p class="text-base mt-2">أعلى دخل/سفينة: $85,000-120,000</p>
+                        <p class="text-sm text-gray-600 mt-2">تشكل 75.5% من إجمالي الحمولة</p>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="icon-badge">
+                            <i class="fas fa-cubes"></i>
+                        </div>
+                        <h4 class="font-bold text-xl mb-2">سفن البضائع السائبة</h4>
+                        <div class="stats-number text-purple-600" style="font-size: 2rem;">31%</div>
+                        <p class="text-base mt-2">دخل متوسط: $45,000-65,000</p>
+                        <p class="text-sm text-gray-600 mt-2">استقرار نسبي خلال الأزمة</p>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="icon-badge">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h4 class="font-bold text-xl mb-2">سفن الحاويات</h4>
+                        <div class="stats-number text-purple-600" style="font-size: 2rem;">13%</div>
+                        <p class="text-base mt-2">احتياجات تموين: $18,700/سفينة</p>
+                        <p class="text-sm text-gray-600 mt-2">الأكثر تضرراً (انخفاض 70.6%)</p>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="icon-badge">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <h4 class="font-bold text-xl mb-2">السفن العامة</h4>
+                        <div class="stats-number text-purple-600" style="font-size: 2rem;">11%</div>
+                        <p class="text-base mt-2">دخل منخفض: $25,000-35,000</p>
+                        <p class="text-sm text-gray-600 mt-2">احتياجات تموين متنوعة</p>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">2.3 تحليل قيمة التموين حسب حجم السفينة</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>فئة السفينة</th>
+                            <th>SCNT<br>(ألف طن)</th>
+                            <th>عدد الطاقم</th>
+                            <th>تكلفة التموين<br>($/سفينة)</th>
+                            <th>عدد السفن<br>(2024)</th>
+                            <th>إجمالي قيمة السوق<br>($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>VLCS (>18k TEU)</strong></td>
+                            <td>100,000+</td>
+                            <td>25-30</td>
+                            <td>$19,500</td>
+                            <td>0-2</td>
+                            <td>$39,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LCS (7.5-18k)</strong></td>
+                            <td>70,000-100k</td>
+                            <td>20-25</td>
+                            <td>$15,000-17,000</td>
+                            <td>8</td>
+                            <td>$120,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Panamax (4-7.5k)</strong></td>
+                            <td>50,000-70k</td>
+                            <td>18-22</td>
+                            <td>$11,200-13,500</td>
+                            <td>20</td>
+                            <td>$270,000</td>
+                        </tr>
+                        <tr style="background-color: #fef3c7;">
+                            <td><strong>Sub-Panamax (<4k)< /strong>
+                            </td>
+                            <td>30,000-50k</td>
+                            <td>15-20</td>
+                            <td>$9,000-11,200</td>
+                            <td>70</td>
+                            <td style="font-weight: bold; color: green;">$770,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ناقلات النفط الكبرى</strong></td>
+                            <td>80,000-150k</td>
+                            <td>20-25</td>
+                            <td>$16,000-18,000</td>
+                            <td>45</td>
+                            <td>$720,000</td>
+                        </tr>
+                        <tr style="background-color: #fef3c7;">
+                            <td><strong>ناقلات النفط المتوسطة</strong></td>
+                            <td>40,000-80k</td>
+                            <td>15-20</td>
+                            <td>$12,000-14,000</td>
+                            <td>90</td>
+                            <td style="font-weight: bold; color: green;">$1,080,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <h4 class="font-bold text-xl mb-2">
+                        <i class="fas fa-star ml-2"></i>
+                        الاستنتاج الرئيسي
+                    </h4>
+                    <p class="text-lg">
+                        سفن <strong>Sub-Panamax</strong> و<strong>ناقلات النفط المتوسطة</strong> تمثل <strong
+                            class="text-blue-600">77%</strong> من إجمالي قيمة السوق (الحجم × التردد)، مما يجعلها الهدف
+                        الأمثل للاستثمار.
+                    </p>
+                </div>
+
+                <h3 class="subsection-title">2.4 البنية التحتية الحالية</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>النوع</th>
+                            <th>عدد الشركات</th>
+                            <th>القدرة التشغيلية (اليومية)</th>
+                            <th>الاحتياج المتوقع (2029)</th>
+                            <th>نسبة العجز</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>مستودعات جافة (بضائع)</strong></td>
+                            <td>125</td>
+                            <td>2,500 طن</td>
+                            <td>3,500 طن</td>
+                            <td>28.5%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>مستودعات مبردة/مجمدة</strong></td>
+                            <td>12</td>
+                            <td>350 طن</td>
+                            <td>1,050 طن</td>
+                            <td style="color: red; font-weight: bold;">67%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>محطات/مراكز وقود بحري</strong></td>
+                            <td>8 (4 فعال)</td>
+                            <td>4,000 طن/اليوم</td>
+                            <td>16,000 طن/اليوم</td>
+                            <td style="color: red; font-weight: bold;">75%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ورش صيانة وإصلاح</strong></td>
+                            <td>18</td>
+                            <td>40 سفينة/شهر</td>
+                            <td>190 سفينة/شهر</td>
+                            <td style="color: red; font-weight: bold;">79%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>نقاط رسو/تفتيش</strong></td>
+                            <td>--</td>
+                            <td>32 نقطة</td>
+                            <td>45 نقطة</td>
+                            <td>29%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="warning-box">
+                    <h4 class="font-bold text-xl mb-2">
+                        <i class="fas fa-hammer ml-2"></i>
+                        ملخص العجز في البنية التحتية
+                    </h4>
+                    <p class="text-lg">
+                        يُظهر التحليل أن العجز الأكبر يتركز في الخدمات اللوجستية ذات القيمة المضافة العالية، وهي
+                        <strong>الوقود البحري</strong> و<strong>الصيانة</strong> و<strong>التخزين المُبرد</strong>. هذا
+                        العجز هو السبب الرئيسي في لجوء 40% من السفن الكبيرة لموانئ بديلة مثل الفجيرة وجدة.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- الباب التاسع: مشروع المنصة الرقمية اللوجستية (ShipPay) -->
+        <div id="chapter9">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-laptop-code ml-3"></i>
+                    الباب التاسع: مشروع المنصة الرقمية اللوجستية (ShipPay)
+                </h2>
+            </div>
+
+            <div class="content-section">
+                <h3 class="subsection-title">9.1 المقدمة والأهمية الاستراتيجية</h3>
+
+                <div class="highlight-box">
+                    <h4 class="font-bold text-2xl mb-3 flex items-center">
+                        <i class="fas fa-rocket text-yellow-600 ml-2"></i>
+                        رؤية المشروع
+                    </h4>
+                    <p class="text-lg leading-relaxed">
+                        تمثل المنصة الرقمية اللوجستية (ShipPay) <strong class="text-blue-600">حجر الزاوية في التحول
+                            الرقمي</strong> لقطاع تموين السفن بقناة السويس. الهدف الرئيسي هو إنشاء نظام متكامل يتيح
+                        الإفراج الفوري عن شحنات التموين، مما يقلل زمن التسليم من 16 ساعة إلى 6 ساعات فقط، ويجعل من مصر
+                        مركزاً إقليمياً رائداً في خدمات التموين البحري.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                    <div class="stats-card">
+                        <div class="stats-number">$3.8M</div>
+                        <div class="stats-label">الاستثمار المطلوب</div>
+                        <div class="text-sm mt-3 opacity-80">تكلفة التطوير والتنفيذ</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-number">$7.5M</div>
+                        <div class="stats-label">العائد السنوي المتوقع</div>
+                        <div class="text-sm mt-3 opacity-80">للهيئة العامة للاستثمار</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-number">1.4</div>
+                        <div class="stats-label">فترة الاسترداد</div>
+                        <div class="text-sm mt-3 opacity-80">سنوات فقط</div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">9.2 تحليل الفجوة والحل المقترح</h3>
+
+                <div class="warning-box">
+                    <h4 class="font-bold text-2xl mb-3 flex items-center">
+                        <i class="fas fa-exclamation-triangle text-red-600 ml-2"></i>
+                        الفجوة الحالية
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-bold mb-2 text-red-600">المشكلات التشغيلية</h5>
+                            <ul class="space-y-2 text-base">
+                                <li>• غياب الشفافية في الإجراءات الجمركية</li>
+                                <li>• تأخر عمليات الإفراج الجمركي (16 ساعة)</li>
+                                <li>• الإجراءات الورقية المعقدة</li>
+                                <li>• تكدس الشاحنات عند البوابات</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold mb-2 text-red-600">النتائج السلبية</h5>
+                            <ul class="space-y-2 text-base">
+                                <li>• تلف الأغذية الطازجة أثناء الانتظار</li>
+                                <li>• رفض السفن للخدمة بسبب التأخير</li>
+                                <li>• خسارة صفقات بقيمة 15,000 دولار لكل سفينة</li>
+                                <li>• تفضيل السفن للموانئ البديلة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-box">
+                    <h4 class="font-bold text-2xl mb-3 flex items-center">
+                        <i class="fas fa-lightbulb text-green-600 ml-2"></i>
+                        الحل المبتكر: نظام "الممر الأخضر" (Green Lane)
+                    </h4>
+                    <p class="text-lg mb-4">
+                        نظام جمركي وإداري سريع المسار يمنح "أولوية المرور الفوري" لشحنات تموين السفن، مما يتيح الإفراج
+                        الفوري عن الشحنات مقابل رسوم خدمة رمزية.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="methodology-card">
+                            <h5 class="font-bold text-blue-600 mb-2"><i class="fas fa-certificate ml-2"></i>المشغل
+                                الاقتصادي المعتمد</h5>
+                            <p class="text-sm">شركات التموين المعتمدة مسبقاً (White-listed) مع سجل نظيف ورقابة دورية</p>
+                        </div>
+                        <div class="methodology-card">
+                            <h5 class="font-bold text-blue-600 mb-2"><i class="fas fa-clock ml-2"></i>التخليص المسبق
+                            </h5>
+                            <p class="text-sm">إرسال بيانات الشحنة إلكترونياً قبل التحرك وإصدار "QR Code" فوري</p>
+                        </div>
+                        <div class="methodology-card">
+                            <h5 class="font-bold text-blue-600 mb-2"><i class="fas fa-door-open ml-2"></i>المرور الذكي
+                            </h5>
+                            <p class="text-sm">بوابات إلكترونية تقرأ الكود وتفتح تلقائياً في 30 ثانية فقط</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">9.3 المكونات الفنية والتكلفة التقديرية</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>المكون</th>
+                            <th>المواصفات الفنية</th>
+                            <th>التكلفة (بالدولار الأمريكي)</th>
+                            <th>المرجع</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>تطوير البرمجيات</strong></td>
+                            <td>Web/Mobile App + AI Engine</td>
+                            <td style="font-weight: bold; color: blue;">$1,200,000</td>
+                            <td>Gartner IT Benchmark</td>
+                        </tr>
+                        <tr>
+                            <td><strong>بنية تحتية لإنترنت الأشياء (IoT)</strong></td>
+                            <td>بوابات ذكية وقارئات RFID</td>
+                            <td style="font-weight: bold; color: blue;">$1,500,000</td>
+                            <td>Honeywell Industrial</td>
+                        </tr>
+                        <tr>
+                            <td><strong>التكامل مع الجهات الحكومية</strong></td>
+                            <td>ربط إلكتروني مع أنظمة الجمارك والبنوك</td>
+                            <td style="font-weight: bold; color: blue;">$1,100,000</td>
+                            <td>تقدير محلي</td>
+                        </tr>
+                        <tr style="background-color: #d1fae5;">
+                            <td><strong>الإجمالي</strong></td>
+                            <td>-</td>
+                            <td style="font-weight: bold; color: green; font-size: 1.2rem;">$3,800,000</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="subsection-title">9.4 نموذج الإيرادات والإطار القانوني</h3>
+
+                <div class="info-box">
+                    <h4 class="font-bold text-2xl mb-3 flex items-center">
+                        <i class="fas fa-balance-scale text-blue-600 ml-2"></i>
+                        الآلية القانونية للتحصيل
+                    </h4>
+                    <div class="space-y-3 text-lg">
+                        <p><strong>الأساس القانوني:</strong> فرض "مقابل خدمة استخدام المنصة" استنادًا إلى قرار من مجلس
+                            الإدارة (وفقًا للمادة 131 من قانون الاستثمار رقم 72)</p>
+                        <p><strong>آلية الحساب:</strong> نسبة 1.5% من إجمالي قيمة الفواتير التي تتم إدارتها عبر المنصة
+                        </p>
+                        <p><strong>القيمة المستهدفة:</strong> 500 مليون دولار حجم معاملات سنوي</p>
+                        <p><strong>الإيراد السنوي المتوقع:</strong> <span class="text-green-600 font-bold">7,500,000
+                                دولار أمريكي</span></p>
+                    </div>
+                </div>
+
+                <div class="formula-box">
+                    $$الإيراد السنوي = القيمة الإجمالية للمعاملات × نسبة الخدمة$$
+                    $$7.5 مليون دولار = 500 مليون دولار × 1.5\%$$
+                </div>
+
+                <h3 class="subsection-title">9.5 مقارنة الأداء: قبل وبعد التطبيق</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>وجه المقارنة</th>
+                            <th>الوضع الحالي (بدون Green Lane)</th>
+                            <th>الوضع المستهدف (مع Green Lane)</th>
+                            <th>الأثر في الدراسة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>زمن الإفراج الجمركي</strong></td>
+                            <td style="color: red;">6 - 12 ساعة</td>
+                            <td style="color: green;">15 - 30 دقيقة</td>
+                            <td>تقليل زمن التسليم الإجمالي من 16 ساعة إلى 6 ساعات</td>
+                        </tr>
+                        <tr>
+                            <td><strong>نسبة التفتيش المادي</strong></td>
+                            <td>100% من الشحنات</td>
+                            <td style="color: green;">5% (عشوائي فقط)</td>
+                            <td>تقليل تكدس الشاحنات وتلف الأغذية</td>
+                        </tr>
+                        <tr>
+                            <td><strong>التكلفة الإدارية</strong></td>
+                            <td style="color: red;">عالية (موظفين، وقت، أرضيات)</td>
+                            <td style="color: green;">منخفضة (أتمتة)</td>
+                            <td>تقليل تكلفة السلة التموينية بنسبة 10-15%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>جاذبية السفن</strong></td>
+                            <td style="color: red;">منخفضة (تفضل عدم التوقف)</td>
+                            <td style="color: green;">عالية (خدمة "Pit Stop" سريعة)</td>
+                            <td>زيادة عدد السفن الطالبة للخدمة</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="subsection-title">9.6 الأثر الاقتصادي المتوقع</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                    <div class="success-box">
+                        <h4 class="font-bold text-xl mb-3 flex items-center">
+                            <i class="fas fa-chart-line text-green-600 ml-2"></i>
+                            الأثر المباشر
+                        </h4>
+                        <ul class="space-y-2 text-base">
+                            <li><strong>زيادة الإيرادات:</strong> $7.5 مليون سنوياً للهيئة</li>
+                            <li><strong>تقليل التكاليف:</strong> 10-15% من تكلفة السلة التموينية</li>
+                            <li><strong>تحسين الكفاءة:</strong> تقليل زمن التسليم بنسبة 62.5%</li>
+                            <li><strong>زيادة الإنتاجية:</strong> معالجة 3x عدد الشحنات بالوقت نفسه</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box">
+                        <h4 class="font-bold text-xl mb-3 flex items-center">
+                            <i class="fas fa-users text-blue-600 ml-2"></i>
+                            الأثر غير المباشر
+                        </h4>
+                        <ul class="space-y-2 text-base">
+                            <li><strong>فرص العمل:</strong> +200 وظيفة مباشرة في التشغيل</li>
+                            <li><strong>القطاع الخاص:</strong> تحفيز شركات التكنولوجيا اللوجستية</li>
+                            <li><strong>البيئة:</strong> تقليل انبعاثات الكربون من الشاحنات المتوقفة</li>
+                            <li><strong>التنافسية:</strong> جذب المزيد من السفن للقناة</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">9.7 مثال تطبيقي واقعي</h3>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card" style="border-right: 4px solid #ef4444;">
+                        <h4 class="font-bold text-xl mb-3 text-red-600">
+                            <i class="fas fa-times-circle ml-2"></i>
+                            بدون الممر الأخضر
+                        </h4>
+                        <div class="space-y-3 text-base">
+                            <p>سفينة حاويات تطلب "مضخة مياه" عاجلة و 5 طن خضروات. المورد يشتري المضخة من القاهرة
+                                والخضروات من الإسماعيلية.</p>
+                            <div class="bg-red-50 p-3 rounded-lg">
+                                <p class="font-bold text-red-700">النتيجة:</p>
+                                <p>الشحنة تصل جمارك السويس، الموظف يطلب تفريغ الخضروات للتفتيش. العملية تأخذ 6 ساعات.
+                                    السفينة تغادر لأنها لا تستطيع التأخر عن دورها في القافلة.</p>
+                                <p class="font-bold text-red-600 mt-2">خسارة صفقة بـ 15,000 دولار</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card" style="border-right: 4px solid #10b981;">
+                        <h4 class="font-bold text-xl mb-3 text-green-600">
+                            <i class="fas fa-check-circle ml-2"></i>
+                            مع الممر الأخضر
+                        </h4>
+                        <div class="space-y-3 text-base">
+                            <p>المورد (المعتمد AEO) يرفع البيانات على المنصة. السيستم يعطي "الضوء الأخضر" ويصدر QR Code.
+                            </p>
+                            <div class="bg-green-50 p-3 rounded-lg">
+                                <p class="font-bold text-green-700">النتيجة:</p>
+                                <p>الشاحنة تمر من بوابات إلكترونية مخصصة (Green Lane Gate) دون توقف. الشحنة تصل السفينة
+                                    في ساعتين فقط.</p>
+                                <p class="font-bold text-green-600 mt-2">إتمام الصفقة + رضا العميل</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">9.8 خطة التنفيذ والجدوى التشغيلية</h3>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h4 class="font-bold text-xl mb-2 text-blue-600">المرحلة الأولى: التصميم والتطوير (6 أشهر)</h4>
+                    <ul class="space-y-1 text-base list-disc pr-5">
+                        <li>تصميم النظام وتطوير البرمجيات الأساسية</li>
+                        <li>الربط مع أنظمة الجمارك والبنوك</li>
+                        <li>اختبار النظام بيئياً مغلقة</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h4 class="font-bold text-xl mb-2 text-blue-600">المرحلة الثانية: التركيب والتكامل (4 أشهر)</h4>
+                    <ul class="space-y-1 text-base list-disc pr-5">
+                        <li>تركيب البوابات الذكية وقارئات RFID</li>
+                        <li>تدريب الموظفين والمشغلين</li>
+                        <li>اختيار وتسجيل المشغلين الاقتصاديين المعتمدين</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h4 class="font-bold text-xl mb-2 text-blue-600">المرحلة الثالثة: التشغيل التجريبي (2 شهر)</h4>
+                    <ul class="space-y-1 text-base list-disc pr-5">
+                        <li>تشغيل تجريبي محدود مع 10 شركات تموين</li>
+                        <li>جمع البيانات وتحسين الأداء</li>
+                        <li>التحضير للإطلاق الكامل</li>
+                    </ul>
+                </div>
+
+                <h3 class="subsection-title">9.9 التوافق مع المناطق الحرة (قانون 72)</h3>
+
+                <div class="info-box">
+                    <h4 class="font-bold text-2xl mb-3 flex items-center">
+                        <i class="fas fa-gavel text-blue-600 ml-2"></i>
+                        الإطار القانوني والتنظيمي
+                    </h4>
+                    <div class="space-y-3 text-lg">
+                        <p><strong>المادة 131 من قانون الاستثمار رقم 72:</strong> تتيح للهيئة فرض رسوم خدمة مقابل تقديم
+                            خدمات مميزة</p>
+                        <p><strong>اللائحة التنفيذية:</strong> تحدد آليات وضوابط تقديم الخدمات الرقمية في المناطق الحرة
+                        </p>
+                        <p><strong>ضوابط تموينات السفن:</strong> تنسيق مع الجهات المختصة لضمان تطبيق المعايير الدولية
+                        </p>
+                        <p><strong>الامتثال الدولي:</strong> توافق مع معايير المنظمة البحرية الدولية (IMO) واتفاقيات
+                            السلامة</p>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">9.10 خلاصة التوصيات</h3>
+
+                <div class="methodology-card" style="border-right: 6px solid #f59e0b;">
+                    <h4 class="font-bold text-2xl mb-4 text-yellow-600">
+                        <i class="fas fa-key ml-2"></i>
+                        أهمية استراتيجية حاسمة
+                    </h4>
+                    <div class="text-lg space-y-3">
+                        <p>إدراج "الممر الأخضر" في التوصيات ليس رفاهية، بل هو <strong class="text-red-600">شرط مسبق
+                                (Prerequisite)</strong> لنجاح النموذج المالي للدراسة، لأن القيمة المضافة الأساسية التي
+                            تقدمها مصر ليست في "المنتج" فقط، بل في <strong class="text-blue-600">"سرعة
+                                الاستجابة"</strong> للسفن العابرة التي لا تملك رفاهية الوقت.</p>
+
+                        <p class="mt-4">هذا التغيير المقترح هو تحول جوهري في <strong class="text-green-600">"فلسفة تحقيق
+                                الربح"</strong> للهيئة الاقتصادية، وينقلها من دور "المؤجر العقاري" التقليدي إلى دور
+                            "الشريك المستثمر".</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // بيانات حركة السفن (2.1)
+            const vesselTrafficData = {
+                labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024 (أزمة)', '2025 (متوقع)'],
+                datasets: [
+                    {
+                        label: 'عدد السفن العابرة (ألف)',
+                        data: [18.174, 18.880, 18.829, 20.694, 23.803, 26.434, 13.213, 22.500],
+                        borderColor: '#667eea',
+                        backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                        type: 'line',
+                        tension: 0.3,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: 'إجمالي الحمولة (مليار طن SCNT)',
+                        data: [1.168, 1.221, 1.206, 1.506, 1.542, 1.576, 0.524, 1.250],
+                        borderColor: '#f59e0b',
+                        backgroundColor: 'rgba(245, 158, 11, 0.5)',
+                        type: 'bar',
+                        yAxisID: 'y1'
+                    }
+                ]
+            };
+
+            const vesselTrafficConfig = {
+                data: vesselTrafficData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'مقارنة حركة السفن وإجمالي الحمولة (2018-2025)',
+                            font: { size: 18, family: 'Cairo, sans-serif' }
+                        },
+                        legend: {
+                            labels: {
+                                font: { family: 'Cairo, sans-serif' }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'عدد السفن (ألف)',
+                                font: { family: 'Cairo, sans-serif' }
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            grid: {
+                                drawOnChartArea: false
+                            },
+                            title: {
+                                display: true,
+                                text: 'الحمولة (مليار طن SCNT)',
+                                font: { family: 'Cairo, sans-serif' }
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                font: { family: 'Cairo, sans-serif' }
+                            }
+                        }
+                    }
+                },
+            };
+
+            // بيانات توزيع أنواع السفن (2.2)
+            const vesselTypesData = {
+                labels: ['ناقلات النفط', 'بضائع سائبة', 'حاويات', 'سفن عامة', 'أخرى'],
+                datasets: [{
+                    label: 'نسبة التوزيع (%)',
+                    data: [38, 31, 13, 11, 7],
+                    backgroundColor: [
+                        '#764ba2',
+                        '#667eea',
+                        '#f59e0b',
+                        '#10b981',
+                        '#ef4444'
+                    ],
+                    hoverOffset: 15
+                }]
+            };
+
+            const vesselTypesConfig = {
+                type: 'doughnut',
+                data: vesselTypesData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'توزيع أنواع السفن العابرة (2024)',
+                            font: { size: 18, family: 'Cairo, sans-serif' }
+                        },
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                font: { family: 'Cairo, sans-serif' }
+                            }
+                        }
+                    }
+                }
+            };
+
+            // تهيئة الرسوم البيانية
+            const ctxTraffic = document.getElementById('vesselTrafficChart').getContext('2d');
+            new Chart(ctxTraffic, vesselTrafficConfig);
+
+            const ctxTypes = document.getElementById('vesselTypesChart').getContext('2d');
+            new Chart(ctxTypes, vesselTypesConfig);
+
+        });
+    </script>
+</body>
+
+</html>
