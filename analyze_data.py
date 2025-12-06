@@ -250,7 +250,7 @@ def analyze_kpis(data):
                 target_val = float(target_2030.replace(',', ''))
                 improvement = ((target_val / current_val - 1) * 100)
                 improvement_text = f"+{improvement:.1f}%"
-            except:
+            except (ValueError, TypeError, ZeroDivisionError):
                 improvement_text = "-"
             
             # Format values with units
